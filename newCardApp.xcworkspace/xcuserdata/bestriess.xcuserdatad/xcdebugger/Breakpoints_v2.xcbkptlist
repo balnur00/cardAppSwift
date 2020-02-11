@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EDB35DFD-BE1A-4E34-95D0-7A7AC46EC175"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F51ACEBB-D582-4714-8579-B2C29C369422"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "newCardApp/API/Route.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "path"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5570896A-49FF-4A96-A222-B451A8E13EDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "newCardApp/Controllers/EmpDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "loadDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5570896A-49FF-4A96-A222-B451A8E13EDD - 78ec391f26dc883b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "newCardApp.EmpDetailViewController.(loadDetail in _296117499ABDF442DADF20C68891092A)() -&gt; ()"
+                  moduleName = "newCardApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bestriess/Desktop/swift/newCardApp/newCardApp/Controllers/EmpDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "5570896A-49FF-4A96-A222-B451A8E13EDD - b81a4df929a72610"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (newCardApp.Result&lt;newCardApp.Employee&gt;) -&gt; () in newCardApp.EmpDetailViewController.(loadDetail in _296117499ABDF442DADF20C68891092A)() -&gt; ()"
+                  moduleName = "newCardApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bestriess/Desktop/swift/newCardApp/newCardApp/Controllers/EmpDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
