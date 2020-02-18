@@ -8,7 +8,12 @@ target 'newCardApp' do
   # Pods for newCardApp
     pod 'SnapKit'
     pod 'Alamofire','~> 4.9.1'
+#    pod 'Firebase/Auth'
     pod 'SwiftyJSON'
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
+    pod 'KeychainSwift'
+    pod 'Toast-Swift', '~> 5.0.0'
+    pod 'PKHUD'
+
 end

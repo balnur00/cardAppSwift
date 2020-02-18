@@ -11,7 +11,7 @@ import UIKit
 class EmployeeDetailView: UIView {
     lazy var firstNameLabel: UILabel = {
         let label = UILabel()
-        label.font = App.Font.bold(size: 16)
+        label.font = App.Font.bold(size: 30)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -19,7 +19,7 @@ class EmployeeDetailView: UIView {
     
     lazy var lastNameLabel: UILabel = {
         let label = UILabel()
-        label.font = App.Font.bold(size: 16)
+        label.font = App.Font.bold(size: 30)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -27,19 +27,27 @@ class EmployeeDetailView: UIView {
     
     lazy var roleLabel: UILabel = {
         let label = UILabel()
+        label.font = App.Font.medium(size: 25)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    lazy var softSkillLabel: UILabel = {
+        let label = UILabel()
         label.font = App.Font.medium(size: 14)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-//    lazy var Label: UILabel = {
-//        let label = UILabel()
-//        label.font = App.Font.medium(size: 14)
-//        label.numberOfLines = 0
-//        label.lineBreakMode = .byWordWrapping
-//        return label
-//    }()
+    lazy var hardSkillLabel: UILabel = {
+        let label = UILabel()
+        label.font = App.Font.medium(size: 14)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +62,8 @@ class EmployeeDetailView: UIView {
         addSubview(firstNameLabel)
         addSubview(lastNameLabel)
         addSubview(roleLabel)
+//        addSubview(softSkillLabel)
+//        addSubview(hardSkillLabel)
         
         firstNameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(12)
@@ -74,5 +84,19 @@ class EmployeeDetailView: UIView {
             make.width.height.equalTo(18)
             make.bottom.equalToSuperview().offset(-12)
         }
+        
+//        softSkillLabel.snp.makeConstraints { make in
+//            make.top.equalTo(roleLabel.snp.bottom).offset(5)
+//            make.left.equalToSuperview().offset(12)
+//            make.width.height.equalTo(18)
+//            make.bottom.equalToSuperview().offset(-12)
+//        }
+//
+//        hardSkillLabel.snp.makeConstraints { make in
+//            make.top.equalTo(softSkillLabel.snp.bottom).offset(5)
+//            make.left.equalToSuperview().offset(12)
+//            make.width.height.equalTo(18)
+//            make.bottom.equalToSuperview().offset(-12)
+//        }
     }
 }

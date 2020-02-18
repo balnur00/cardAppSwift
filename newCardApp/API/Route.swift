@@ -9,18 +9,19 @@
 import UIKit
 import Alamofire
 
-enum APIRouter: URLRequestConvertible {
+public enum APIRouter: URLRequestConvertible {
     
     case employeeList
     case employeeDetail(String)
+    case login(String, String)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
-        case .employeeList:
+        case .employeeList, .employeeDetail:
             return .get
-        case .employeeDetail:
-            return .get
+        case .login:
+            return .post
         }
     }
     
@@ -28,9 +29,11 @@ enum APIRouter: URLRequestConvertible {
     var path: String {
         switch self {
         case .employeeList:
-            return "/employeeList"
+            return "/employeeList/"
         case .employeeDetail(let id):
-            return "/employee/\(id)"
+            return "/employee/\(id)/"
+        case .login:
+            return "/login/"
         }
     }
     
@@ -41,11 +44,14 @@ enum APIRouter: URLRequestConvertible {
             return nil
         case .employeeDetail:
             return nil
+        case .login(let username, let password):
+            return ["username" : username,
+                    "password" : password]
         }
     }
     
     // MARK: - URLRequestConvertible
-    func asURLRequest() throws -> URLRequest {
+    public func asURLRequest() throws -> URLRequest {
         var baseURL: String {
             switch App.mode {
             case .test:
@@ -62,7 +68,8 @@ enum APIRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         
         // Common Headers
- 
+        addAuthHeader(&urlRequest)
+        
         // Parameters
         if let parameters = parameters {
             do {
@@ -71,10 +78,41 @@ enum APIRouter: URLRequestConvertible {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }
         }
-        
+        print(urlRequest.url?.absoluteURL ?? "")
+        print(urlRequest.httpMethod ?? "--")
+        print(urlRequest.urlRequest?.allHTTPHeaderFields ?? "-")
+        if let body = urlRequest.urlRequest?.httpBody {
+            print(String(data: body, encoding: .utf8))
+        }
         return urlRequest
     }
+    
+    public func addAuthHeader(_ request: inout URLRequest) {
+        switch self {
+        case .login:
+            break
+        default:
+//            if let token = BossModel.currentBoss.token {
+//                var paramsWithToken = parameters
+//                paramsWithToken?["token"] = token
+//                return paramsWithToken!
+//            }
+//            return parameters!
+            if let token = BossModel.currentBoss.token {
+                request.setValue("JWT \(token)", forHTTPHeaderField: "Authorization")
+            }
+        }
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    }
+
+    
+//    public func urlPath() -> String {
+//
+//    }
+    
 }
+
+
 
 public enum APIError: Error {
     case badRequest(String)

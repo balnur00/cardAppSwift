@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 enum Result<T> {
     case success(T)
@@ -22,3 +23,15 @@ enum Result<T> {
         }
     }
 }
+
+//struct AF {
+//  static func printLog(_ request: APIRouter, _ response: DataResponse<Any>) {
+//    print("---------------------------------------------------------")
+//    print(request.method.rawValue.uppercased())
+//    print(request.urlPath())
+//    print(request.addAuthHeader(&<#URLRequest#>))
+//    print(response)
+//    
+//    print("---------------------------------------------------------")
+//  }
+//}

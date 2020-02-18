@@ -18,6 +18,8 @@ class EmpDetailViewController: UIViewController {
         view.firstNameLabel.text = res.firstname
         view.lastNameLabel.text = res.lastname
         view.roleLabel.text = res.role
+//        view.softSkillLabel.text = res.softSkill.name
+//        view.hardSkillLabel.text = res.hardSkill.name
         return view
     }()
     
@@ -69,6 +71,8 @@ extension EmpDetailViewController {
         employeeView.firstNameLabel.text = res.firstname
         employeeView.lastNameLabel.text = res.lastname
         employeeView.roleLabel.text = res.role
+//        employeeView.softSkillLabel.text = res.softSkill.name
+//        employeeView.hardSkillLabel.text = res.hardSkill.name
     }
     
 

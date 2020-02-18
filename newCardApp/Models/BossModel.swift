@@ -8,20 +8,67 @@
 
 import Foundation
 import ObjectMapper
+import KeychainSwift
 
-struct BossModel: Mappable {
+enum AuthorizationType {
+  case unauthorized
+  case authorized
+}
+
+class BossModel {
+
+    var authorizationType: AuthorizationType {
+      return token != nil ? .authorized : .unauthorized
+    }
+    
     var bossId:Int!
     var firstname:String!
     var lastname:String!
     var username:String!
     var password:String!
     var email:String!
-    var token: String!
-    
-    init?(map:Map) {
+    var token: String!{
+      set {
+        let keyChain = KeychainSwift()
+        keyChain.set(newValue, forKey: "token")
+      }
+      get {
+        let keyChain = KeychainSwift()
+        return keyChain.get("token") ?? ""
+      }
     }
     
-    mutating func mapping(map:Map){
+    fileprivate static var boss: BossModel?
+    public static var currentBoss: BossModel {
+      get {
+        if boss == nil {
+            boss = BossModel()
+        }
+        return boss!
+      }
+      set (newValue) {
+        boss = newValue
+      }
+    }
+    required public convenience init?(map: Map) {
+      self.init()
+    }
+    
+    convenience init(_ response: LoginResponse) {
+        self.init()
+        self.username = response.profile.username
+        self.email = response.profile.email
+//        self.password = response.profile.password
+        self.token = response.token
+    }
+    
+//    init?(map:Map) {
+//    }
+    
+    public func doLogout() {
+    }
+        
+    func mapping(map:Map){
         bossId <- map["bossId"]
         firstname <- map["firstname"]
         lastname <- map["lastname"]
@@ -32,3 +79,23 @@ struct BossModel: Mappable {
     }
     
 }
+
+
+//class User {
+//    var name: String?
+//    var email: String?
+//    var password: String?
+//    
+//    static let current = User()
+//
+//    var token: String? {
+//        set {
+//            let keyChain = KeychainSwift()
+//            keyChain.set(newValue ?? "", forKey: "token")
+//        }
+//        get {
+//          let keyChain = KeychainSwift()
+//          return keyChain.get("token")
+//        }
+//    }
+//}
