@@ -33,7 +33,7 @@ struct AuthAPI {
                     print(result)
                     if let dict = result as? [String: Any] ,
                         let token = dict["token"] as? String {
-                            BossModel.currentBoss.token = token
+                            UserModel.currentUser.token = token
                         
 //                        completion(.success())
                     } else {

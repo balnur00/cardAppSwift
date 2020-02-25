@@ -10,18 +10,12 @@ import UIKit
 
 class EmpDetailViewController: UIViewController {
     var passedValue:String
-    var res = Employee()
+    var res: Employee?
+    var skillsResult = [SkillModel]()
     
-    lazy var employeeView: EmployeeDetailView = {
-        let view = EmployeeDetailView()
-
-        view.firstNameLabel.text = res.firstname
-        view.lastNameLabel.text = res.lastname
-        view.roleLabel.text = res.role
-//        view.softSkillLabel.text = res.softSkill.name
-//        view.hardSkillLabel.text = res.hardSkill.name
-        return view
-    }()
+    let tableView = UITableView()
+    
+    lazy var employeeView = EmployeeDetailView()
     
     init(id: String) {
         self.passedValue = id
@@ -34,13 +28,12 @@ class EmpDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
+        setupTableView()
         loadDetail()
         updateView()
     }
-
-    
     
     private func loadDetail() {
         EmployeeDetailAPI.getEmployeeDetails(id: passedValue) { [weak self] result in
@@ -63,29 +56,70 @@ class EmpDetailViewController: UIViewController {
 
 }
 
-extension EmpDetailViewController {
+extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return skillsResult.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: SkillTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SkillTableViewCell
+        cell.skills = skillsResult[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return employeeView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:1))
+        return footerView
+    }
     override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
         
     }
+    
     func updateView(){
+        guard let res = self.res else {
+            return
+        }
         employeeView.firstNameLabel.text = res.firstname
         employeeView.lastNameLabel.text = res.lastname
         employeeView.roleLabel.text = res.role
-//        employeeView.softSkillLabel.text = res.softSkill.name
-//        employeeView.hardSkillLabel.text = res.hardSkill.name
+        res.skills.forEach { s in
+            let skills = SkillModel(id: s.id, name: s.name, level: s.level, type: s.type)
+            skillsResult.append(skills)
+        }
+        tableView.reloadData()
     }
-    
 
     private func setupUI() {
         view.backgroundColor = .white
 //        updateView(view: employeeView)
-        self.view.addSubview(employeeView)
+//        self.view.addSubview(employeeView)
             
-        employeeView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-        }
+//        employeeView.snp.makeConstraints { make in
+//            make.top.left.right.equalToSuperview()
+//        }
         
 //        navigationController?.popViewController(animated: self)
 //        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func setupTableView() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { m in
+            m.edges.equalToSuperview()
+        }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 60
+
+        tableView.register(SkillTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }

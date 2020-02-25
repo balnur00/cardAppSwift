@@ -82,6 +82,10 @@ extension EmpListViewController: UITableViewDataSource, UITableViewDelegate {
         openDetail(for: arrRes[indexPath.row])
     }
     
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//    }
+    
     func openDetail(for employee: Employee) {
         if let emp_id = employee.employeeId {
             let stringId = String(emp_id)

@@ -33,7 +33,7 @@ class EmployeeDetailView: UIView {
         return label
     }()
     
-    lazy var softSkillLabel: UILabel = {
+    lazy var skillNameLabel: UILabel = {
         let label = UILabel()
         label.font = App.Font.medium(size: 14)
         label.numberOfLines = 0
@@ -41,7 +41,15 @@ class EmployeeDetailView: UIView {
         return label
     }()
     
-    lazy var hardSkillLabel: UILabel = {
+    lazy var skillTypeLabel: UILabel = {
+        let label = UILabel()
+        label.font = App.Font.medium(size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    lazy var skillLevelLabel: UILabel = {
         let label = UILabel()
         label.font = App.Font.medium(size: 14)
         label.numberOfLines = 0
@@ -62,41 +70,21 @@ class EmployeeDetailView: UIView {
         addSubview(firstNameLabel)
         addSubview(lastNameLabel)
         addSubview(roleLabel)
-//        addSubview(softSkillLabel)
-//        addSubview(hardSkillLabel)
         
         firstNameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(12)
-            make.left.equalToSuperview().offset(12)
-            make.right.equalToSuperview().offset(-12)
-            make.height.equalTo(200)
+            make.top.equalToSuperview().offset(8)
+            make.left.equalToSuperview().offset(22)
         }
         
         lastNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(firstNameLabel.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(12)
-            make.right.equalToSuperview().offset(-12)
+            make.top.equalToSuperview().offset(8)
+            make.left.equalTo(firstNameLabel.snp.right).offset(12)
         }
         
         roleLabel.snp.makeConstraints { make in
-            make.top.equalTo(lastNameLabel.snp.bottom).offset(5)
-            make.left.equalToSuperview().offset(12)
-            make.width.height.equalTo(18)
-            make.bottom.equalToSuperview().offset(-12)
+            make.top.equalTo(firstNameLabel.snp.bottom).offset(5)
+            make.left.equalToSuperview().offset(22)
+            make.right.equalToSuperview().offset(12)
         }
-        
-//        softSkillLabel.snp.makeConstraints { make in
-//            make.top.equalTo(roleLabel.snp.bottom).offset(5)
-//            make.left.equalToSuperview().offset(12)
-//            make.width.height.equalTo(18)
-//            make.bottom.equalToSuperview().offset(-12)
-//        }
-//
-//        hardSkillLabel.snp.makeConstraints { make in
-//            make.top.equalTo(softSkillLabel.snp.bottom).offset(5)
-//            make.left.equalToSuperview().offset(12)
-//            make.width.height.equalTo(18)
-//            make.bottom.equalToSuperview().offset(-12)
-//        }
     }
 }

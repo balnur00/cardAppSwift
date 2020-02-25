@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        
+        loginView.usernameTextField.text = "mark_j"
+        loginView.passwordTextField.text = "Qwerty1?"
     }
     
     func setupView(){
@@ -67,8 +70,8 @@ extension LoginViewController: Loadable {
     
     fileprivate func handleLoginSuccess(_ response: LoginResponse) {
         self.hideLoaderSuccess()
-        let user = BossModel(response)
-        BossModel.currentBoss = user
+        let user = UserModel(response)
+        UserModel.currentUser = user
         let keychain = KeychainSwift()
 //        keychain.set(response.username, forKey: "username")
         keychain.set(response.profile.username, forKey: "username")

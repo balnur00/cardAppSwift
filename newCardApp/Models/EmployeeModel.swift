@@ -15,11 +15,10 @@ struct Employee: Mappable {
     var employeeId:Int!
     var firstname:String!
     var lastname:String!
-    var username:String!
+    var skinname:String!
     var boss:String!
     var role:String!
-    var softSkill:[SoftSkillModel]!
-    var hardSkill:[HardSkillModel]!
+    var skills:[SkillModel]!
     
     init() {}
     
@@ -30,12 +29,11 @@ struct Employee: Mappable {
         employeeId <- map["id"]
         firstname <- map["name"]
         lastname <- map["surname"]
-        username <- map["skinname"]
+        skinname <- map["skinname"]
         
         role <- map["role"]
         boss <- map["boss"]
-        softSkill <- map["softSkill"]
-        hardSkill <- map["hardSkill"]
+        skills <- map["skills"]
     }
 
 }

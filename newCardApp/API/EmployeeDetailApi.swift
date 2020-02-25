@@ -37,7 +37,7 @@ struct EmployeeDetailAPI {
                     completion(Result.failure(APIError.badRequest("Произошла ошибка")))
                 }
             })
-            .responseObject(keyPath: "") {(response :DataResponse<Employee>) in
+            .responseObject(keyPath: "") {(response: DataResponse<Employee>) in
                 if let response = response.result.value {
                     completion(Result.success(response))
                 }

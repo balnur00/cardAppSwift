@@ -15,13 +15,13 @@ enum AuthorizationType {
   case authorized
 }
 
-class BossModel {
+class UserModel {
 
     var authorizationType: AuthorizationType {
       return token != nil ? .authorized : .unauthorized
     }
     
-    var bossId:Int!
+    var userId:Int!
     var firstname:String!
     var lastname:String!
     var username:String!
@@ -38,16 +38,16 @@ class BossModel {
       }
     }
     
-    fileprivate static var boss: BossModel?
-    public static var currentBoss: BossModel {
+    fileprivate static var user: UserModel?
+    public static var currentUser: UserModel {
       get {
-        if boss == nil {
-            boss = BossModel()
+        if user == nil {
+            user = UserModel()
         }
-        return boss!
+        return user!
       }
       set (newValue) {
-        boss = newValue
+        user = newValue
       }
     }
     required public convenience init?(map: Map) {
@@ -69,9 +69,9 @@ class BossModel {
     }
         
     func mapping(map:Map){
-        bossId <- map["bossId"]
-        firstname <- map["firstname"]
-        lastname <- map["lastname"]
+        userId <- map["userId"]
+        firstname <- map["first_name"]
+        lastname <- map["last_name"]
         username <- map["username"]
         password <- map["password"]
         email <- map["email"]

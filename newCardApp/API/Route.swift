@@ -98,7 +98,7 @@ public enum APIRouter: URLRequestConvertible {
 //                return paramsWithToken!
 //            }
 //            return parameters!
-            if let token = BossModel.currentBoss.token {
+            if let token = UserModel.currentUser.token {
                 request.setValue("JWT \(token)", forHTTPHeaderField: "Authorization")
             }
         }

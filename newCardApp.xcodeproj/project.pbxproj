@@ -13,6 +13,8 @@
 		C2681E9A23F41F0A00D2D9DE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2681E9923F41F0A00D2D9DE /* Credentials.swift */; };
 		C2681E9C23F505BB00D2D9DE /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2681E9B23F505BB00D2D9DE /* LoginResponse.swift */; };
 		C2681E9F23F5094D00D2D9DE /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2681E9E23F5094D00D2D9DE /* Toast.swift */; };
+		C269511223FFF631006E0A66 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269511123FFF631006E0A66 /* SkillModel.swift */; };
+		C269511624000976006E0A66 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269511524000976006E0A66 /* SkillTableViewCell.swift */; };
 		C26C538B23F2B29B00403DC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26C538A23F2B29B00403DC6 /* LoginViewController.swift */; };
 		C26C538D23F2B31100403DC6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26C538C23F2B31100403DC6 /* LoginView.swift */; };
 		C26C538F23F2B54400403DC6 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26C538E23F2B54400403DC6 /* AuthApi.swift */; };
@@ -21,9 +23,7 @@
 		C28068A723ED68F200B60806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28068A623ED68F200B60806 /* Assets.xcassets */; };
 		C28068AA23ED68F200B60806 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28068A823ED68F200B60806 /* LaunchScreen.storyboard */; };
 		C28068B323ED6BE400B60806 /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068B223ED6BE400B60806 /* EmployeeModel.swift */; };
-		C28068B523ED6D1200B60806 /* BossModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068B423ED6D1200B60806 /* BossModel.swift */; };
-		C28068B723ED6D3000B60806 /* SoftSkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068B623ED6D3000B60806 /* SoftSkillModel.swift */; };
-		C28068B923ED6D4E00B60806 /* HardSkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068B823ED6D4E00B60806 /* HardSkillModel.swift */; };
+		C28068B523ED6D1200B60806 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068B423ED6D1200B60806 /* UserModel.swift */; };
 		C28068BB23ED6D6300B60806 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068BA23ED6D6300B60806 /* RoleModel.swift */; };
 		C28068BE23ED6DAC00B60806 /* EmployeeListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068BD23ED6DAC00B60806 /* EmployeeListApi.swift */; };
 		C28068C023ED6DED00B60806 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068BF23ED6DEC00B60806 /* Result.swift */; };
@@ -42,6 +42,8 @@
 		C2681E9923F41F0A00D2D9DE /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		C2681E9B23F505BB00D2D9DE /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		C2681E9E23F5094D00D2D9DE /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		C269511123FFF631006E0A66 /* SkillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
+		C269511524000976006E0A66 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 		C26C538A23F2B29B00403DC6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C26C538C23F2B31100403DC6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C26C538E23F2B54400403DC6 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
@@ -52,9 +54,7 @@
 		C28068A923ED68F200B60806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C28068AB23ED68F200B60806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C28068B223ED6BE400B60806 /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; };
-		C28068B423ED6D1200B60806 /* BossModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BossModel.swift; sourceTree = "<group>"; };
-		C28068B623ED6D3000B60806 /* SoftSkillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftSkillModel.swift; sourceTree = "<group>"; };
-		C28068B823ED6D4E00B60806 /* HardSkillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkillModel.swift; sourceTree = "<group>"; };
+		C28068B423ED6D1200B60806 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C28068BA23ED6D6300B60806 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
 		C28068BD23ED6DAC00B60806 /* EmployeeListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListApi.swift; sourceTree = "<group>"; };
 		C28068BF23ED6DEC00B60806 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -144,12 +144,11 @@
 			isa = PBXGroup;
 			children = (
 				C28068B223ED6BE400B60806 /* EmployeeModel.swift */,
-				C28068B423ED6D1200B60806 /* BossModel.swift */,
-				C28068B623ED6D3000B60806 /* SoftSkillModel.swift */,
-				C28068B823ED6D4E00B60806 /* HardSkillModel.swift */,
+				C28068B423ED6D1200B60806 /* UserModel.swift */,
 				C28068BA23ED6D6300B60806 /* RoleModel.swift */,
 				C2681E9923F41F0A00D2D9DE /* Credentials.swift */,
 				C2681E9B23F505BB00D2D9DE /* LoginResponse.swift */,
+				C269511123FFF631006E0A66 /* SkillModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +180,7 @@
 				C2E7E68D23ED77DB00BC47D8 /* EmpListViewController.swift */,
 				C2DECB9823ED860D00965072 /* EmpDetailViewController.swift */,
 				C26C538A23F2B29B00403DC6 /* LoginViewController.swift */,
+				C269511524000976006E0A66 /* SkillTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28068B723ED6D3000B60806 /* SoftSkillModel.swift in Sources */,
+				C269511223FFF631006E0A66 /* SkillModel.swift in Sources */,
 				C28068C223ED6E1C00B60806 /* Route.swift in Sources */,
 				C280689E23ED68F000B60806 /* AppDelegate.swift in Sources */,
 				C2DECB9B23ED863B00965072 /* EmployeeDetailApi.swift in Sources */,
@@ -318,7 +318,6 @@
 				C2E7E68E23ED77DB00BC47D8 /* EmpListViewController.swift in Sources */,
 				C28068C023ED6DED00B60806 /* Result.swift in Sources */,
 				C26C538D23F2B31100403DC6 /* LoginView.swift in Sources */,
-				C28068B923ED6D4E00B60806 /* HardSkillModel.swift in Sources */,
 				C26C538F23F2B54400403DC6 /* AuthApi.swift in Sources */,
 				C2681E9F23F5094D00D2D9DE /* Toast.swift in Sources */,
 				C2681E9A23F41F0A00D2D9DE /* Credentials.swift in Sources */,
@@ -328,7 +327,8 @@
 				C242719D23F27274003D238F /* EmployeeDetailView.swift in Sources */,
 				C296D39723F50E55004A6652 /* Loadable.swift in Sources */,
 				C28068BE23ED6DAC00B60806 /* EmployeeListApi.swift in Sources */,
-				C28068B523ED6D1200B60806 /* BossModel.swift in Sources */,
+				C28068B523ED6D1200B60806 /* UserModel.swift in Sources */,
+				C269511624000976006E0A66 /* SkillTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

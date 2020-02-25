@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5570896A-49FF-4A96-A222-B451A8E13EDD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "newCardApp/Controllers/EmpDetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "EmpDetailViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "5570896A-49FF-4A96-A222-B451A8E13EDD - 78ec391f26dc883b"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "newCardApp.EmpDetailViewController.(loadDetail in _296117499ABDF442DADF20C68891092A)() -&gt; ()"
-                  moduleName = "newCardApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bestriess/Desktop/swift/newCardApp/newCardApp/Controllers/EmpDetailViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "5570896A-49FF-4A96-A222-B451A8E13EDD - b81a4df929a72610"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (newCardApp.Result&lt;newCardApp.Employee&gt;) -&gt; () in newCardApp.EmpDetailViewController.(loadDetail in _296117499ABDF442DADF20C68891092A)() -&gt; ()"
-                  moduleName = "newCardApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bestriess/Desktop/swift/newCardApp/newCardApp/Controllers/EmpDetailViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7724E1FA-1867-4A71-8C05-DA1CAABBC42C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -112,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "BossModel"
+            landmarkName = "UserModel"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -176,8 +128,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "handleLoginButton()"
-            landmarkType = "7">
+            landmarkName = "LoginViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,7 +152,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5812376C-7091-4536-B063-26E0DB3D42F2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "newCardApp/API/AuthApi.swift"
@@ -232,7 +184,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A95C1C29-C79B-4FCF-A7B7-3830C994DE4F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "newCardApp/API/Route.swift"
