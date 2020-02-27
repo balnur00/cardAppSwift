@@ -20,6 +20,7 @@ struct Employee: Mappable {
     var role:String!
     var skills:[SkillModel]!
     var photo:String!
+    var points:Int!
     
     init() {}
     
@@ -35,6 +36,7 @@ struct Employee: Mappable {
         role <- map["role"]
         boss <- map["boss"]
         skills <- map["skills"]
+        points <- map["points"]
     }
 
 }

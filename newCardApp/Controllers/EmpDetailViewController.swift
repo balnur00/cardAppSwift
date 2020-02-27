@@ -49,7 +49,6 @@ class EmpDetailViewController: UIViewController {
         }
 
     }
-    
     deinit {
         print("EmpDetailViewController deinit")
     }
@@ -63,7 +62,6 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return skillsResult[section].items.count
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SkillTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SkillTableViewCell
@@ -78,9 +76,6 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return skillsResult[section].type
     }
-    override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
-        
-    }
     
     func updateView(){
         guard let res = self.res else {
@@ -89,7 +84,7 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
         employeeView.firstNameLabel.text = res.firstname
         employeeView.lastNameLabel.text = res.lastname
         employeeView.roleLabel.text = res.role
-        
+        employeeView.pointsLabel.text = String(res.points) + " " + "points"
         var hardList = [SkillModel]()
         var softList = [SkillModel]()
         
@@ -106,24 +101,10 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
         let hard = SkillTypeModel(type: "hard skill", items: hardList)
         let soft = SkillTypeModel(type: "soft skill", items: softList)
         self.skillsResult = [soft, hard]
-        setImage(from: res.photo)
+        self.employeeView.imageView.setImageFromUrl(res.photo)
+//        setImage(from: res.photo)
         tableView.reloadData()
     }
-    
-    func setImage(from url: String) {
-        guard let imageURL = URL(string: url) else { return }
-
-            // just not to cause a deadlock in UI!
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                self.employeeView.imageView.image = image
-            }
-        }
-    }
-
     
     private func setupTableView() {
         view.addSubview(tableView)

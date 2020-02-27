@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6F3604AE21637D19E4C514FB /* Pods_newCardApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA933A0F96402A753A5F68D1 /* Pods_newCardApp.framework */; };
 		C21F7EE82406814B009B825F /* SkillTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21F7EE72406814B009B825F /* SkillTypeModel.swift */; };
+		C21F7EEC2407807A009B825F /* EmployeeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21F7EEB2407807A009B825F /* EmployeeListCell.swift */; };
+		C21F7EEF24079CF1009B825F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21F7EEE24079CF1009B825F /* UIImageView.swift */; };
+		C21F7EF12407D521009B825F /* APIRequestFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21F7EF02407D521009B825F /* APIRequestFetcher.swift */; };
 		C242719A23F26309003D238F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242719923F26309003D238F /* Constants.swift */; };
 		C242719D23F27274003D238F /* EmployeeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242719C23F27274003D238F /* EmployeeDetailView.swift */; };
 		C2681E9A23F41F0A00D2D9DE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2681E9923F41F0A00D2D9DE /* Credentials.swift */; };
@@ -39,6 +42,9 @@
 		A8D140BF6E6D9E76B845BEC7 /* Pods-newCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newCardApp.release.xcconfig"; path = "Target Support Files/Pods-newCardApp/Pods-newCardApp.release.xcconfig"; sourceTree = "<group>"; };
 		AA933A0F96402A753A5F68D1 /* Pods_newCardApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_newCardApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21F7EE72406814B009B825F /* SkillTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTypeModel.swift; sourceTree = "<group>"; };
+		C21F7EEB2407807A009B825F /* EmployeeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListCell.swift; sourceTree = "<group>"; };
+		C21F7EEE24079CF1009B825F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		C21F7EF02407D521009B825F /* APIRequestFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestFetcher.swift; sourceTree = "<group>"; };
 		C242719923F26309003D238F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C242719C23F27274003D238F /* EmployeeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailView.swift; sourceTree = "<group>"; };
 		C2681E9923F41F0A00D2D9DE /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -89,11 +95,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C21F7EED24079CDE009B825F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C21F7EEE24079CF1009B825F /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C242719B23F2725D003D238F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C242719C23F27274003D238F /* EmployeeDetailView.swift */,
 				C26C538C23F2B31100403DC6 /* LoginView.swift */,
+				C21F7EEB2407807A009B825F /* EmployeeListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +142,7 @@
 		C280689C23ED68F000B60806 /* newCardApp */ = {
 			isa = PBXGroup;
 			children = (
+				C21F7EED24079CDE009B825F /* Extensions */,
 				C296D39523F50E45004A6652 /* Protocols */,
 				C2681E9D23F5093E00D2D9DE /* Controls */,
 				C242719B23F2725D003D238F /* Views */,
@@ -165,6 +181,7 @@
 				C2DECB9A23ED863B00965072 /* EmployeeDetailApi.swift */,
 				C242719923F26309003D238F /* Constants.swift */,
 				C26C538E23F2B54400403DC6 /* AuthApi.swift */,
+				C21F7EF02407D521009B825F /* APIRequestFetcher.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -316,13 +333,16 @@
 				C2DECB9B23ED863B00965072 /* EmployeeDetailApi.swift in Sources */,
 				C28068A023ED68F000B60806 /* SceneDelegate.swift in Sources */,
 				C2DECB9923ED860D00965072 /* EmpDetailViewController.swift in Sources */,
+				C21F7EEF24079CF1009B825F /* UIImageView.swift in Sources */,
 				C28068B323ED6BE400B60806 /* EmployeeModel.swift in Sources */,
 				C28068BB23ED6D6300B60806 /* RoleModel.swift in Sources */,
 				C2E7E68E23ED77DB00BC47D8 /* EmpListViewController.swift in Sources */,
 				C28068C023ED6DED00B60806 /* Result.swift in Sources */,
 				C26C538D23F2B31100403DC6 /* LoginView.swift in Sources */,
+				C21F7EF12407D521009B825F /* APIRequestFetcher.swift in Sources */,
 				C26C538F23F2B54400403DC6 /* AuthApi.swift in Sources */,
 				C2681E9F23F5094D00D2D9DE /* Toast.swift in Sources */,
+				C21F7EEC2407807A009B825F /* EmployeeListCell.swift in Sources */,
 				C2681E9A23F41F0A00D2D9DE /* Credentials.swift in Sources */,
 				C2681E9C23F505BB00D2D9DE /* LoginResponse.swift in Sources */,
 				C242719A23F26309003D238F /* Constants.swift in Sources */,
