@@ -57,8 +57,10 @@ class EmployeeDetailView: UIView {
         return label
     }()
     
+    lazy var imageView = UIImageView()
+    
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
         setupUI()
     }
     
@@ -70,21 +72,29 @@ class EmployeeDetailView: UIView {
         addSubview(firstNameLabel)
         addSubview(lastNameLabel)
         addSubview(roleLabel)
+        addSubview(imageView)
         
         firstNameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(22)
         }
         
         lastNameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(16)
             make.left.equalTo(firstNameLabel.snp.right).offset(12)
         }
         
         roleLabel.snp.makeConstraints { make in
             make.top.equalTo(firstNameLabel.snp.bottom).offset(5)
             make.left.equalToSuperview().offset(22)
-            make.right.equalToSuperview().offset(12)
+//            make.right.equalToSuperview().offset(12)
+            make.bottom.equalTo(-20)
+        }
+        imageView.snp.makeConstraints{ make in
+            make.top.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-12)
+            make.height.equalTo(60)
+            make.width.equalTo(60)
         }
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F3604AE21637D19E4C514FB /* Pods_newCardApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA933A0F96402A753A5F68D1 /* Pods_newCardApp.framework */; };
+		C21F7EE82406814B009B825F /* SkillTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21F7EE72406814B009B825F /* SkillTypeModel.swift */; };
 		C242719A23F26309003D238F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242719923F26309003D238F /* Constants.swift */; };
 		C242719D23F27274003D238F /* EmployeeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242719C23F27274003D238F /* EmployeeDetailView.swift */; };
 		C2681E9A23F41F0A00D2D9DE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2681E9923F41F0A00D2D9DE /* Credentials.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		A8D140BF6E6D9E76B845BEC7 /* Pods-newCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newCardApp.release.xcconfig"; path = "Target Support Files/Pods-newCardApp/Pods-newCardApp.release.xcconfig"; sourceTree = "<group>"; };
 		AA933A0F96402A753A5F68D1 /* Pods_newCardApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_newCardApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21F7EE72406814B009B825F /* SkillTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTypeModel.swift; sourceTree = "<group>"; };
 		C242719923F26309003D238F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C242719C23F27274003D238F /* EmployeeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailView.swift; sourceTree = "<group>"; };
 		C2681E9923F41F0A00D2D9DE /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				C2681E9923F41F0A00D2D9DE /* Credentials.swift */,
 				C2681E9B23F505BB00D2D9DE /* LoginResponse.swift */,
 				C269511123FFF631006E0A66 /* SkillModel.swift */,
+				C21F7EE72406814B009B825F /* SkillTypeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,9 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				C2E7E68D23ED77DB00BC47D8 /* EmpListViewController.swift */,
+				C269511524000976006E0A66 /* SkillTableViewCell.swift */,
 				C2DECB9823ED860D00965072 /* EmpDetailViewController.swift */,
 				C26C538A23F2B29B00403DC6 /* LoginViewController.swift */,
-				C269511524000976006E0A66 /* SkillTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				C242719D23F27274003D238F /* EmployeeDetailView.swift in Sources */,
 				C296D39723F50E55004A6652 /* Loadable.swift in Sources */,
 				C28068BE23ED6DAC00B60806 /* EmployeeListApi.swift in Sources */,
+				C21F7EE82406814B009B825F /* SkillTypeModel.swift in Sources */,
 				C28068B523ED6D1200B60806 /* UserModel.swift in Sources */,
 				C269511624000976006E0A66 /* SkillTableViewCell.swift in Sources */,
 			);

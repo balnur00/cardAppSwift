@@ -11,9 +11,10 @@ import UIKit
 class EmpDetailViewController: UIViewController {
     var passedValue:String
     var res: Employee?
-    var skillsResult = [SkillModel]()
+    var skillsResult = [SkillTypeModel]()
     
-    let tableView = UITableView()
+
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
     lazy var employeeView = EmployeeDetailView()
     
@@ -29,7 +30,6 @@ class EmpDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
         setupTableView()
         loadDetail()
         updateView()
@@ -57,25 +57,26 @@ class EmpDetailViewController: UIViewController {
 }
 
 extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return skillsResult.count
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return skillsResult[section].items.count
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SkillTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SkillTableViewCell
-        cell.skills = skillsResult[indexPath.row]
+        cell.skills = skillsResult[indexPath.section].items[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return employeeView
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
-    }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:1))
         return footerView
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return skillsResult[section].type
     }
     override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
         
@@ -88,25 +89,41 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
         employeeView.firstNameLabel.text = res.firstname
         employeeView.lastNameLabel.text = res.lastname
         employeeView.roleLabel.text = res.role
+        
+        var hardList = [SkillModel]()
+        var softList = [SkillModel]()
+        
         res.skills.forEach { s in
-            let skills = SkillModel(id: s.id, name: s.name, level: s.level, type: s.type)
-            skillsResult.append(skills)
+            guard let type = s.type else { return }
+            if type == "hard skill" {
+                let hs = SkillModel(id: s.id, name: s.name, level: s.level, type: s.type)
+                hardList.append(hs)
+            } else if type == "soft skill" {
+                let ss = SkillModel(id: s.id, name: s.name, level: s.level, type: s.type)
+                softList.append(ss)
+            }
         }
+        let hard = SkillTypeModel(type: "hard skill", items: hardList)
+        let soft = SkillTypeModel(type: "soft skill", items: softList)
+        self.skillsResult = [soft, hard]
+        setImage(from: res.photo)
         tableView.reloadData()
     }
+    
+    func setImage(from url: String) {
+        guard let imageURL = URL(string: url) else { return }
 
-    private func setupUI() {
-        view.backgroundColor = .white
-//        updateView(view: employeeView)
-//        self.view.addSubview(employeeView)
-            
-//        employeeView.snp.makeConstraints { make in
-//            make.top.left.right.equalToSuperview()
-//        }
-        
-//        navigationController?.popViewController(animated: self)
-//        self.dismiss(animated: true, completion: nil)
+            // just not to cause a deadlock in UI!
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+
+            let image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                self.employeeView.imageView.image = image
+            }
+        }
     }
+
     
     private func setupTableView() {
         view.addSubview(tableView)
@@ -119,7 +136,9 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-
+        
+        tableView.tableHeaderView = employeeView
+        
         tableView.register(SkillTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
