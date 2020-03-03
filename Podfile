@@ -15,5 +15,6 @@ target 'newCardApp' do
     pod 'KeychainSwift'
     pod 'Toast-Swift', '~> 5.0.0'
     pod 'PKHUD'
+    pod 'PaginatedTableView'
 
 end

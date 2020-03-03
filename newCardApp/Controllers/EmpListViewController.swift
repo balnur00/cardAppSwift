@@ -18,18 +18,14 @@ import UIKit
 import SnapKit
 import Alamofire
 import SwiftyJSON
+import PaginatedTableView
 
 class EmpListViewController: UIViewController {
     lazy var searchBar = UISearchBar()
     lazy var tableView = UITableView()
+    lazy var tableViewPage = PaginatedTableView()
     var arrRes = [Employee]()
-    private let apiFetcher = APIRequestFetcher()
-    
-    private var searchResults = [JSON]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var filteredEmployees = [Employee]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +47,7 @@ class EmpListViewController: UIViewController {
         tableView.tableHeaderView = searchBar
         searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         searchBar.delegate = self
-        searchBar.showsCancelButton = true
+//        searchBar.showsCancelButton = true
         searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = " Search..."
         searchBar.sizeToFit()
@@ -77,9 +73,14 @@ class EmpListViewController: UIViewController {
 
 
 extension EmpListViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: EmployeeListCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EmployeeListCell
-        cell.employees = arrRes[indexPath.row]
+        if searchBar.text != "" {
+            cell.employees = filteredEmployees[indexPath.row]
+        } else {
+            cell.employees = arrRes[indexPath.row]
+        }
         return cell
     }
     
@@ -89,6 +90,9 @@ extension EmpListViewController: UITableViewDataSource, UITableViewDelegate, UIS
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchBar.text != "" {
+            return filteredEmployees.count
+        }
         return arrRes.count
     }
     
@@ -110,26 +114,26 @@ extension EmpListViewController: UITableViewDataSource, UITableViewDelegate, UIS
         }
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        searchResults.removeAll()
-        
+        filteredEmployees.removeAll()
+        tableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("---------------------------------------------------------")
+        print("button clicked ")
+        filterEmployees (for: searchBar.text ?? "")
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchResults.removeAll()
+//        searchResults.removeAll()
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        searchBar.endEditing(true)
+    }
+    func filterEmployees (for searchText: String) {
+        filteredEmployees.removeAll()
+        filteredEmployees = arrRes.filter { e in
+            return e.firstname.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
     }
     
-//    func fetchResults(for text: String) {
-//        print("Text Searched: \(text)")
-//        apiFetcher.search(searchText: text, completionHandler: {
-//            [weak self] results, error in
-//            if case .failure = error {
-//                return
-//            }
-//            
-//            guard let results = results, !results.isEmpty else {
-//                return
-//            }
-//            
-//            self?.searchResults = results
-//        })
-//    }
 }

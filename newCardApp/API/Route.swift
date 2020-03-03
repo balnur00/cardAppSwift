@@ -92,24 +92,12 @@ public enum APIRouter: URLRequestConvertible {
         case .login:
             break
         default:
-//            if let token = BossModel.currentBoss.token {
-//                var paramsWithToken = parameters
-//                paramsWithToken?["token"] = token
-//                return paramsWithToken!
-//            }
-//            return parameters!
             if let token = UserModel.currentUser.token {
                 request.setValue("JWT \(token)", forHTTPHeaderField: "Authorization")
             }
         }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    }
-
-    
-//    public func urlPath() -> String {
-//
-//    }
-    
+    }    
 }
 
 
