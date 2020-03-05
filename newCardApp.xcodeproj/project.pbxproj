@@ -32,6 +32,7 @@
 		C28068BE23ED6DAC00B60806 /* EmployeeListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068BD23ED6DAC00B60806 /* EmployeeListApi.swift */; };
 		C28068C023ED6DED00B60806 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068BF23ED6DEC00B60806 /* Result.swift */; };
 		C28068C223ED6E1C00B60806 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068C123ED6E1C00B60806 /* Route.swift */; };
+		C284FE18240E1FD40093AE67 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284FE17240E1FD40093AE67 /* Response.swift */; };
 		C296D39723F50E55004A6652 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296D39623F50E55004A6652 /* Loadable.swift */; };
 		C2DECB9923ED860D00965072 /* EmpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DECB9823ED860D00965072 /* EmpDetailViewController.swift */; };
 		C2DECB9B23ED863B00965072 /* EmployeeDetailApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DECB9A23ED863B00965072 /* EmployeeDetailApi.swift */; };
@@ -67,6 +68,7 @@
 		C28068BD23ED6DAC00B60806 /* EmployeeListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListApi.swift; sourceTree = "<group>"; };
 		C28068BF23ED6DEC00B60806 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		C28068C123ED6E1C00B60806 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		C284FE17240E1FD40093AE67 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		C296D39623F50E55004A6652 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		C2DECB9823ED860D00965072 /* EmpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpDetailViewController.swift; sourceTree = "<group>"; };
 		C2DECB9A23ED863B00965072 /* EmployeeDetailApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailApi.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				C2681E9B23F505BB00D2D9DE /* LoginResponse.swift */,
 				C269511123FFF631006E0A66 /* SkillModel.swift */,
 				C21F7EE72406814B009B825F /* SkillTypeModel.swift */,
+				C284FE17240E1FD40093AE67 /* Response.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				C28068C023ED6DED00B60806 /* Result.swift in Sources */,
 				C26C538D23F2B31100403DC6 /* LoginView.swift in Sources */,
 				C21F7EF12407D521009B825F /* APIRequestFetcher.swift in Sources */,
+				C284FE18240E1FD40093AE67 /* Response.swift in Sources */,
 				C26C538F23F2B54400403DC6 /* AuthApi.swift in Sources */,
 				C2681E9F23F5094D00D2D9DE /* Toast.swift in Sources */,
 				C21F7EEC2407807A009B825F /* EmployeeListCell.swift in Sources */,

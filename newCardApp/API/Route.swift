@@ -11,14 +11,15 @@ import Alamofire
 
 public enum APIRouter: URLRequestConvertible {
     
-    case employeeList
+    case employeeList(Int?)
+    case employeeListPage
     case employeeDetail(String)
     case login(String, String)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
-        case .employeeList, .employeeDetail:
+        case .employeeList, .employeeDetail, .employeeListPage:
             return .get
         case .login:
             return .post
@@ -34,19 +35,26 @@ public enum APIRouter: URLRequestConvertible {
             return "/employee/\(id)/"
         case .login:
             return "/login/"
+        case .employeeListPage:
+            return "/employeeList/?page="
         }
     }
     
     // MARK: - Parameters
     var parameters: Parameters? {
         switch self {
-        case .employeeList:
+        case .employeeList(let page):
+            if let page = page {
+                return ["page" : page]
+            }
             return nil
         case .employeeDetail:
             return nil
         case .login(let username, let password):
             return ["username" : username,
                     "password" : password]
+        case .employeeListPage:
+            return nil
         }
     }
     
@@ -69,20 +77,24 @@ public enum APIRouter: URLRequestConvertible {
         
         // Common Headers
         addAuthHeader(&urlRequest)
-        
-        // Parameters
-        if let parameters = parameters {
-            do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-            } catch {
-                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
-            }
-        }
+    
         print(urlRequest.url?.absoluteURL ?? "")
         print(urlRequest.httpMethod ?? "--")
         print(urlRequest.urlRequest?.allHTTPHeaderFields ?? "-")
-        if let body = urlRequest.urlRequest?.httpBody {
-            print(String(data: body, encoding: .utf8))
+        
+        // Parameters
+        switch self.method {
+        case .post, .put:
+            if let parameters = parameters {
+                do {
+                    urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+                    return try URLEncoding.default.encode(urlRequest, with: nil)
+                } catch {
+                    throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+                }
+            }
+        default:
+            return try URLEncoding.default.encode(urlRequest, with: parameters)
         }
         return urlRequest
     }

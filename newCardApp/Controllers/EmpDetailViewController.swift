@@ -101,7 +101,7 @@ extension EmpDetailViewController : UITableViewDataSource, UITableViewDelegate {
         let hard = SkillTypeModel(type: "hard skill", items: hardList)
         let soft = SkillTypeModel(type: "soft skill", items: softList)
         self.skillsResult = [soft, hard]
-        self.employeeView.imageView.setImageFromUrl(res.photo)
+//        self.employeeView.imageView.setImageFromUrl(res.photo)
 //        setImage(from: res.photo)
         tableView.reloadData()
     }

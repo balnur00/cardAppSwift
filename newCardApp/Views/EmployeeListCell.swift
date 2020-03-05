@@ -114,7 +114,7 @@ class EmployeeListCell : UITableViewCell {
                 lastNameLbl.text = e.lastname
                 roleLbl.text = e.role
                 pointsLbl.text = String(e.points) + " " + "pts"
-                photoView.setImageFromUrl(e.photo)
+//                photoView.setImageFromUrl(e.photo)
             }
         }
     }
